@@ -1,0 +1,83 @@
+/* Color palette start */
+:root {
+	--bg: #141414;
+	--black: #282c34;
+	--white: #abb2bf;
+	--red: #e06c75;
+	--green: #98c379;
+	--yellow: #e5c07b;
+	--blue: #61afef;
+	--magenta: #c678dd;
+	--cyan: #56b6c2;
+	font-family: 'Jetbrains Mono', monospace;
+}
+/* Color palette end */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: var(--black);
+	color: var(--white);
+	width: 100%;
+	height: 100vh;
+}
+
+a {
+	color: var(--white);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bookmarks {
+	display: flex;
+	gap: 1rem;
+}
+
+.bookmarks > ul {
+	border: 2px solid var(--white);
+	padding: 1em;
+	background-color: var(--black);
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
+.bookmarks > ul > li {
+	margin-left: 1em;
+}
+
+/* .title { 
+	text-decoration: underline; 
+} */
+
+.bookmarks__entertainment > .title {
+	color: var(--red);
+}
+
+.bookmarks__development > .title {
+	color: var(--blue);
+}
+
+.bookmarks__mine > .title {
+	color: var(--yellow);
+}
+
+.bookmarks__utility > .title {
+	color: var(--green);
+}
+
+.bookmarks__study > .title {
+	color: var(--magenta);
+}
