@@ -1,32 +1,17 @@
-/* Color palette start */
-:root {
-	--bg: #141414;
-	--black: #282c34;
-	--white: #abb2bf;
-	--red: #e06c75;
-	--green: #98c379;
-	--yellow: #e5c07b;
-	--blue: #61afef;
-	--magenta: #c678dd;
-	--cyan: #56b6c2;
-	font-family: 'Jetbrains Mono', monospace;
-}
-/* Color palette end */
-
 * {
 	margin: 0;
 	padding: 0;
 }
 
 body {
-	background-color: var(--black);
-	color: var(--white);
+	background-color: var(--bg);
+	color: var(--fg);
 	width: 100%;
 	height: 100vh;
 }
 
 a {
-	color: var(--white);
+	color: var(--fg);
 	text-decoration: none;
 }
 
@@ -48,19 +33,15 @@ a:hover {
 }
 
 .bookmarks > ul {
-	border: 2px solid var(--white);
+	border: 2px solid var(--fg);
 	padding: 1em;
-	background-color: var(--black);
+	background-color: var(--bg);
 	box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 }
 
 .bookmarks > ul > li {
 	margin-left: 1em;
 }
-
-/* .title { 
-	text-decoration: underline; 
-} */
 
 .bookmarks__entertainment > .title {
 	color: var(--red);
