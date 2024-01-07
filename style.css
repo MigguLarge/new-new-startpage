@@ -30,6 +30,8 @@ a:hover {
 .bookmarks {
 	display: flex;
 	gap: 1rem;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .bookmarks > ul {
