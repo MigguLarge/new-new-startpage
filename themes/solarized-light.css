@@ -1,0 +1,13 @@
+:root {
+	--bg: #fdf6e3;
+	--fg: #52676f;
+	--black: #262626;
+	--white: #e4e4e4;
+	--red: #d70000;
+	--green: #5f8700;
+	--yellow: #af8700;
+	--blue: #0087ff;
+	--magenta: #af005f;
+	--cyan: #00afaf;
+	font-family: 'Jetbrains Mono', monospace;
+}

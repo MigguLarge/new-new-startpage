@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+kittyThemes="$HOME/.config/kitty/themes/"
+theme=$(ls ${kittyThemes} | fzf --height 30% --reverse --prompt "Select kitty theme to convert: ")
+if [[ -z ${theme} ]] then
+   exit 1;
+fi
+
+themeFile="${kittyThemes}${theme}"
+themeName=$(echo ${theme} | cut -d "." -f 1)
+
+foreground=$(awk '/^foreground/{ if ($1 == "foreground") print $2 }' $themeFile)
+background=$(awk '/^background/{ if ($1 == "background") print $2 }' $themeFile)
+color0=$(awk '/^color0/{ if ($1 == "color0") print $2 }' $themeFile)
+color1=$(awk '/^color1/{ if ($1 == "color1") print $2 }' $themeFile)
+color2=$(awk '/^color2/{ if ($1 == "color2") print $2 }' $themeFile)
+color3=$(awk '/^color3/{ if ($1 == "color3") print $2 }' $themeFile)
+color4=$(awk '/^color4/{ if ($1 == "color4") print $2 }' $themeFile)
+color5=$(awk '/^color5/{ if ($1 == "color5") print $2 }' $themeFile)
+color6=$(awk '/^color6/{ if ($1 == "color6") print $2 }' $themeFile)
+color7=$(awk '/^color7/{ if ($1 == "color7") print $2 }' $themeFile)
+
+printf "${forground}\n${background}\n${color0}\n${color1}\n${color2}\n${color3}\n${color4}\n${color5}\n${color6}\n${color7}\n"
+
+themeText=":root { --bg: ${background}; --fg: ${foreground}; --black: ${color0}; --white: ${color7}; --red: ${color1}; --green: ${color2}; --yellow: ${color3}; --blue: ${color4}; --magenta: ${color5}; --cyan: ${color6}; font-family: 'Jetbrains Mono', monospace;}"
+
+if [[ $(find ./themes -iname "${themeName}.css") ]] then
+   read -p "There is theme named $(find ./themes -iname "*${themeName}*"). Do you want to overwrite? " yn
+   case $yn in
+       [Yy]* ) echo ${themeText} > ./themes/${themeName}.css; echo "Overwrited ./themes/${themeName}.css";;
+       [Nn]* ) exit 1;;
+       * ) echo "Please answer yes or no." ;;
+   esac
+fi
+echo ${themeText} > ./themes/${themeName}.css
