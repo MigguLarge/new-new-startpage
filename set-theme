@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
 color=$(ls ./themes | cut -d "." -f 1 | sort | fzf --height 30% --reverse --prompt "Set start page theme as: ")
-colorschemeLine=$(awk "/<!-- Change colorscheme -->/{ print NR; exit }" ./index.html)
-colorschemeLine=$(($colorschemeLine + 1))
+# colorschemeLine=$(awk "/<!-- Change colorscheme -->/{ print NR; exit }" ./index.html)
+# colorschemeLine=$(($colorschemeLine + 1))
 
 if [[ -z $color ]]; then
 	exit 0;
 fi
 
-sed -i '' -e "${colorschemeLine}s|.*|<link rel='stylesheet' href='./themes/${color}.css' />|" ./index.html
+# sed -i '' -e "${colorschemeLine}s|.*|<link rel='stylesheet' href='./themes/${color}.css' />|" ./index.html
+cat ./themes/${color}.css > ./public/themes.css
