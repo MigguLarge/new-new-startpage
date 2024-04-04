@@ -39,6 +39,7 @@ a:hover {
 	padding: 1em;
 	background-color: var(--bg);
 	box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+	transition: .1s;
 }
 
 .bookmarks > ul > li {
@@ -63,4 +64,20 @@ a:hover {
 
 .bookmarks__study > .title {
 	color: var(--magenta);
+}
+
+.bookmarks__univ > .title {
+	color: var(--cyan);
+}
+
+.statusline {
+	position: fixed;
+	bottom: .5em;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.statusline > * {
+	margin: 0 .5em;
 }
