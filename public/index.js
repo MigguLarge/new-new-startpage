@@ -1,4 +1,5 @@
 const statuslineTime = document.querySelector(".statusline__time");
+const bookmarks = document.querySelector(".bookmarks");
 
 const getDate = () => {
     const monthNames = [
@@ -40,3 +41,15 @@ statuslineTime.textContent = getDate();
 setInterval(() => {
     statuslineTime.textContent = getDate();
 }, 1000);
+
+const message = document.createElement("div");
+message.classList.add("message");
+fetch("https://techy-api.vercel.app/api/json")
+    .then((res) => res.json())
+    .then((data) => {
+        message.textContent = data.message;
+        bookmarks.appendChild(message);
+    })
+    .catch((err) => {
+        console.error(err);
+    });
